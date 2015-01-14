@@ -1,15 +1,22 @@
+//Set environment variables
+var dbHost = process.env.DB_HOST || '127.0.0.1';
+var dbUser = process.env.DB_USER || 'your_database_user';
+var dbPassword = process.env.DB_PASSWORD || 'password';
+var dbName = process.env.DB_NAME || 'shortlydb';
+var dbFilestore = process.env.DB_FILESTORE || path.join(__dirname, '../db/shortly.sqlite');
+
 var Bookshelf = require('bookshelf');
 var path = require('path');
 
 var db = Bookshelf.initialize({
   client: 'sqlite3',
   connection: {
-    host: '127.0.0.1',
-    user: 'your_database_user',
-    password: 'password',
-    database: 'shortlydb',
+    host: dbHost,
+    user: dbUser,
+    password: dbPassword,
+    database: dbName,
     charset: 'utf8',
-    filename: path.join(__dirname, '../db/shortly.sqlite')
+    filename: dbFilestore,
   }
 });
 

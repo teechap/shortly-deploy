@@ -1,6 +1,9 @@
 var app = require('./server-config.js');
 
-var port = 4568;
+//var mongoport = process.env.MONGO_PORT || 1234
+var port = process.env.APP_PORT || 4568;
+
+
 
 app.listen(port);
 

@@ -1,3 +1,6 @@
+//use a variable to store the secret for the cookie parser
+var cookieSecret = process.env.COOKIE_SECRET || 'shhhh, very secret';
+
 var express = require('express');
 var partials = require('express-partials');
 var util = require('./lib/utility');
@@ -12,7 +15,7 @@ app.configure(function() {
   app.use(partials());
   app.use(express.bodyParser());
   app.use(express.static(__dirname + '/public'));
-  app.use(express.cookieParser('shhhh, very secret'));
+  app.use(express.cookieParser(cookieSecret));
   app.use(express.session());
 });
 
