@@ -4,15 +4,30 @@
     <meta charset="utf-8" />
     <title>Shortly</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="/dist/productionlibs.js"></script>
+
+    <script>
+      window.Templates = {};
+    </script>
+    <script src="/public/dist/productionclient.js"></script>
+    <!--
     <script src="/lib/jquery.js"></script>
     <script src="/lib/underscore.js"></script>
     <script src="/lib/backbone.js"></script>
     <script src="/lib/handlebars.js"></script>
-
+-->
   </head>
 
   <body>
     <h1>Shortly</h1>
     <%- body %>
+    <script>
+      $('[type="text/x-handlebars-template"]').each(function(index, div){
+          Templates[div.id] = Handlebars.compile(div.innerHTML);
+      });
+      $(function(){
+        new Shortly();
+      });
+    </script>
   </body>
 </html>

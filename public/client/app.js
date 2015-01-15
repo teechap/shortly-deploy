@@ -1,4 +1,5 @@
 window.Shortly = Backbone.View.extend({
+  console.log("ABOUT TO SET TEMPLATE");
   template: Templates.layout,
 
   events: {

@@ -3,11 +3,26 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     concat: {
-      dist: {
+      basic: {
         src: [
-          "public/**/*.js"
+          "public/lib/jquery.js",
+          "public/lib/underscore.js",
+          "public/lib/handlebars.js",
+          "public/lib/backbone.js"
         ],
-        dest: "public/dist/production.js"
+        dest: "public/dist/productionlibs.js"
+      },
+      extras: {
+        src: [
+          "public/client/app.js",
+          "public/client/createLinkView.js",
+          "public/client/link.js",
+          "public/client/links.js",
+          "public/client/linksView.js",
+          "public/client/linkView.js",
+          "public/client/router.js"
+        ],
+        dest: "public/dist/productionclient.js"
       }
     },
 
