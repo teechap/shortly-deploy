@@ -3,6 +3,12 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     concat: {
+      dist: {
+        src: [
+          "public/**/*.js"
+        ],
+        dest: "public/dist/production.js"
+      }
     },
 
     mochaTest: {
@@ -72,6 +78,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-nodemon');
 
+
+
   grunt.registerTask('server-dev', function (target) {
     // Running nodejs in a different process and displaying output on the main console
     var nodemon = grunt.util.spawn({
@@ -94,6 +102,8 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('build', [
+    //build production code minified and concated
+
   ]);
 
   grunt.registerTask('upload', function(n) {
